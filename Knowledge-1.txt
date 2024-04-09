@@ -1,0 +1,6 @@
+1.  Shell file doesn't necessarily need to have .sh as file extension, but having it will make editor easy to parse the file format.
+
+2.  Usually, the 1st line of your bash script is 
+    #! /bin/bash
+    It denotes where is you bash, and tell file interpreter what shell you are using. 
+    You can know this by running 'which bash'command.
