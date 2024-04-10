@@ -4,3 +4,9 @@
     #! /bin/bash
     It denotes where is you bash, and tell file interpreter what shell you are using. 
     You can know this by running 'which bash'command.
+
+3.  In Shell, there are 2 types of variables: system variables and user defined variables.
+    - System Variables
+    Created and maintained by Linux operating systems. Their names usually are in capital letters (Convention, not rule).
+    - User Defined vVariables
+    Created and maintained by users. Their names usually are in lower letters (Convention, not rule).
