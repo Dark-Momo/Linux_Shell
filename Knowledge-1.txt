@@ -11,14 +11,64 @@
     - User Defined vVariables
     Created and maintained by users. Their names usually are in lower letters (Convention, not rule).
 
-4. Assignment in Shell doesn't accept space.
-   name=Mark    # name is "Mark"
-   name = Mark  # name is ""
+4.  Assignment in Shell doesn't accept space.
+    name=Mark    # name is "Mark"
+    name = Mark  # name is ""
 
-5. read without variable name : Default $REPLY will hold user input;
-   read with variable name;
-   read -p : Input at current line; 
-   read -sp: Silently input at current line, such as for password input;
-   read -a : Input in array form;
+5.  read without variable name : Default $REPLY will hold user input;
+    read with variable name;
+    read -p : Input at current line; 
+    read -sp: Silently input at current line, such as for password input;
+    read -a : Input in array form;
 
-6. echo itself will output a new line '/n'; 
+6.  echo itself will output a new line '/n'; 
+
+7.  Passing arguments to a Shell script
+    $# is the number of arguments that are passed in. 
+    It doesn't count the first argument, which is the file name.
+
+    [Method - 1]
+    For a Shell, its arguments are stored in variable $0 $1 $2 $3 and so on.
+    $0 and ${0} are the same, which is the first input argument.
+
+    [Method - 2]
+    $@ stores the arguments passed in array format. 
+    It doesn't contain the first argument, which is the file name.
+
+8.  With or without {}
+    - When deferecing a normal variable, {} is not necessary.
+    $@ and ${@} is the same; $1 and ${1} is the same;
+    
+    - It is necessary in below case:
+    ${strvar}extension
+    
+    - It is necessary when deferencing a array member:
+    --------------------------------------------------
+    args=$@
+    echo "${args[0]} ${args[1]} ${args[2]} ${args[3]}"
+    --------------------------------------------------
+    
+    - It is necessary to expand positional parameters beyond 9: 
+    "$8 $9 ${10} ${11}"
+    
+    See file [3-PassArgument.sh] for more inforamtion.
+
+9.  echo "" and echo '' are different!
+    "" have deference function, while '' just print directly what is inside.
+    ****************************************************************************
+    echo $0 $1 $2 $3 
+    echo '> $0 $1 $2 $3'
+    echo '> ${0} ${1} ${2} ${3}'
+    echo "> $0 $1 $2 $3"
+    echo "> ${0} ${1} ${2} ${3}"
+    # --------------------------------------------------------------------------
+    # Execution is:
+    # momo@Ubuntu-Linux-22-04:~/Linux_Shell$ ./3-PassArgument.sh Momo Kuku 100
+    # ./3-PassArgument.sh Momo Kuku 100
+    # > $0 $1 $2 $3
+    # > ${0} ${1} ${2} ${3}
+    # > ./3-PassArgument.sh Momo Kuku 100
+    # > ./3-PassArgument.sh Momo Kuku 100
+    # momo@Ubuntu-Linux-22-04:~/Linux_Shell$ 
+    # --------------------------------------------------------------------------
+    ****************************************************************************
