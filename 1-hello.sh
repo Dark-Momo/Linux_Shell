@@ -14,6 +14,8 @@ name=Mark
 # Below 2 lines are the same.
 echo The name is $name
 echo "The name is $name"
+# Don't use "name = Mark", otherwise name would be empty.
+
 
 10val=10
 echo Value is $10val

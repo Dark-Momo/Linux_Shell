@@ -10,3 +10,15 @@
     Created and maintained by Linux operating systems. Their names usually are in capital letters (Convention, not rule).
     - User Defined vVariables
     Created and maintained by users. Their names usually are in lower letters (Convention, not rule).
+
+4. Assignment in Shell doesn't accept space.
+   name=Mark    # name is "Mark"
+   name = Mark  # name is ""
+
+5. read without variable name : Default $REPLY will hold user input;
+   read with variable name;
+   read -p : Input at current line; 
+   read -sp: Silently input at current line, such as for password input;
+   read -a : Input in array form;
+
+6. echo itself will output a new line '/n'; 
