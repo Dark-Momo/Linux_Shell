@@ -24,20 +24,19 @@
 6.  echo itself will output a new line '/n'; 
 
 7.  Passing arguments to a Shell script
-    $# is the number of arguments that are passed in. 
-    It doesn't count the first argument, which is the file name.
+    $# is the number of arguments that are passed in. It doesn't count the first argument, which is the file name.
 
     [Method - 1]
     For a Shell, its arguments are stored in variable $0 $1 $2 $3 and so on.
     $0 and ${0} are the same, which is the first input argument.
 
     [Method - 2]
-    $@ stores the arguments passed in array format. 
-    It doesn't contain the first argument, which is the file name.
+    $@ stores the arguments passed in array format. It doesn't contain the first argument, which is the file name.
 
 8.  With or without {}
     - When deferecing a normal variable, {} is not necessary.
-    $@ and ${@} is the same; $1 and ${1} is the same;
+    $@ and ${@} is the same, but different from {$@}. See file [3-PassArgument.sh] for this. 
+    $1 and ${1} is the same;
     
     - It is necessary in below case:
     ${strvar}extension
@@ -54,7 +53,7 @@
     See file [3-PassArgument.sh] for more inforamtion.
 
 9.  echo "" and echo '' are different!
-    "" have deference function, while '' just print directly what is inside.
+    "" have de-reference function, while '' just print directly what is inside.
     ****************************************************************************
     echo $0 $1 $2 $3 
     echo '> $0 $1 $2 $3'

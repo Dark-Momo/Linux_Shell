@@ -25,7 +25,8 @@ echo "> ${0} ${1} ${2} ${3}"
 # --------------------------------------------------------------------------
 
 echo "Method - 2"
-echo '$@ is' $@ # Output is '$@ is Momo Kuku 100'.
+echo '$@ is' $@ 
+# Output is '$@ is Momo Kuku 100'.
 # $@ stores the arguments passed in array format.
 # It doesn't contain the first argument, which is the file name.
 
@@ -38,7 +39,21 @@ args=${@}
 echo "${args[0]} ${args[1]} ${args[2]} ${args[3]}"
 
 echo 'args={$@}'
-args={$@}
+args={$@}  # Here, args={Momo Kuku 100}
 echo "${args[0]} ${args[1]} ${args[2]} ${args[3]}"
+
+# Output is:
+# momo@Ubuntu-Linux-22-04:~/Linux_Shell$ ./3-PassArgument.sh Momo Kuku 100
+# ...
+# Method - 2
+# $@ is Momo Kuku 100
+# args=$@
+# Momo Kuku 100   
+# args=${@}
+# Momo Kuku 100   
+# args={$@}
+# {Momo Kuku 100}   
+# momo@Ubuntu-Linux-22-04:~/Linux_Shell$ 
+
 
 
